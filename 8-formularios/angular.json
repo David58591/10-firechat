@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "miscelaneos": {
+    "formularios": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/miscelaneos",
+            "outputPath": "dist/formularios",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,16 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/b4/css/bootstrap.css",
-              "src/assets/font-awesome/css/font-awesome.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/Jquery/jquery.min.slim.js",
-              "src/assets/tether/js/tether.js",
-              "src/assets/b4/js/bootstrap.min.js"
-
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -73,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "miscelaneos:build"
+            "browserTarget": "formularios:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "miscelaneos:build:production"
+              "browserTarget": "formularios:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "miscelaneos:build"
+            "browserTarget": "formularios:build"
           }
         },
         "test": {
@@ -99,7 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -121,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "miscelaneos:serve"
+            "devServerTarget": "formularios:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "miscelaneos:serve:production"
+              "devServerTarget": "formularios:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "miscelaneos"
+  "defaultProject": "formularios"
 }
