@@ -1,0 +1,104 @@
+<h4>Formularios <small>template</small></h4>
+<hr>
+<form (ngSubmit)="guardar(f)" #f="ngForm" novalidate="">
+
+  <div>
+
+    <div class="form-group row" [ngClass]="{'has-danger' : nombre.errors?.required || nombre.errors?.minlength }">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Nombre"
+               name="nombre"
+               minlength="5"
+               maxlength="9"
+               [(ngModel)]="usuario.nombre"
+               required
+               #nombre="ngModel">
+               <div class="form-control-feedback" *ngIf="nombre.errors?.required">Este Campo es requerido</div>
+               <div class="form-control-feedback" *ngIf="nombre.errors?.minlength">Se nececesitan {{nombre.errors.minlength.requiredLength}} caracteres al menos </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Apellido"
+               name="apellido"
+               minlength="5"
+               maxlength="9"
+               [(ngModel)]="usuario.apellido"
+               required
+               #apellidos="ngModel"
+               >
+               <div *ngIf="apellidos.errors?.required">Este Campo es requerido</div>
+               <div *ngIf="apellidos.errors?.minlength">Se nececesitan entre 5 caracteres y 9 caracteres </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="email"
+             placeholder="Correo electrónico"
+             name="email"
+             [(ngModel)]="usuario.email"
+             required
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+             #correo="ngModel"
+             >
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Paises</label>
+    <div class="col-md-8">
+      <select [(ngModel)]="usuario.pais"
+      class="form-control" name="pais" id="">
+        <option value="">Seleccione un País</option>
+        <option *ngFor='let pais of paises' [value]="pais.codigo">{{pais.pais}}</option>
+    </select>
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-3 inline col-form-label">Radios</label>
+    <div *ngFor="let sexo of sexos" class="col-md-3">
+     
+            <input 
+            [(ngModel)]="usuario.sexo"
+            name="sexo"
+            [value]="sexo.valueOf()"
+            type="radio"
+            aria-label="Sexo"
+            selected="Mujer">
+         {{sexo.valueOf(0)}}
+      </div>
+  </div>
+
+    <div class="espacio">
+
+    </div>
+ 
+  <div class="form-group row">
+    <label class="col-2 col-form-label"></label>
+    <div class="input-group col-md-8">
+      <button 
+     [disabled]="!f.valid"
+      type="submit" 
+      class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</form>
