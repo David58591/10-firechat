@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HeroeModel } from '../models/heroe/heroe.model';
-import { map } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,11 @@ import { map } from 'rxjs/operators';
 export class HeroesService {
 
   private url = 'https://login-app-ba3e5.firebaseio.com';
-  constructor(private http: HttpClient) {}
-  
-  crearHeroe(heroe: HeroeModel){
+  constructor(private http : HttpClient) {}
+
+  crearHeroe(heroe : HeroeModel){
   return this.http.post(`${this.url}/heroes.json`, heroe).pipe(
-    map( (resp: any) => {
+    map( (resp : any) => {
       heroe.id = resp.name;
       return heroe;
     })
@@ -31,5 +31,32 @@ export class HeroesService {
         return heroe;
       })
     );
+  }
+
+  borrarHerroe( id : string) {
+    return this.http.delete(`${this.url}/heroes/${id}.json`);
+  }
+
+  getHeroes(){
+     return this.http.get(`${this.url}/heroes.json`).
+     pipe(
+       map(this.crearArregloHeroes ),
+       delay(300));
+  }
+
+  getHeroe( id: string){
+    return this.http.get(`${this.url}/heroes/${id}.json`);
+  }
+  private crearArregloHeroes( heroesObj : object) {
+    const heroes : HeroeModel [] = [];
+    console.log(heroesObj);
+    
+    Object.keys(heroesObj).forEach(key => {
+      const heroe : HeroeModel = heroesObj[key];
+      heroe.id = key;
+      heroes.push(heroe);
+    });
+    if (heroesObj === null){return []; }
+    return heroes;
   }
 }
