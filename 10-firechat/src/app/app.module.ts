@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 
 // servicios
 import {AngularFireAuth}  from '@angular/fire/auth/';
+import { ChatService } from './providers/chat.service';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import {AngularFireAuth}  from '@angular/fire/auth/';
     AngularFireAuthModule,
     FormsModule
   ],
- 
+ providers: [
+  ChatService
+ ],
   exports: [AngularFireAuth],
   bootstrap: [AppComponent]
 })

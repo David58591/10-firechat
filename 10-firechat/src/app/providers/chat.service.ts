@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import {map} from 'rxjs/operators'
 import { Mensaje } from '../interface/mensaje.interface';
 
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { async } from '@angular/core/testing';
-import * as firebase from 'firebase';
 
 
 @Injectable()
