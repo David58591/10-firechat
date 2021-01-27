@@ -1,0 +1,30 @@
+[debug] [2020-12-08T10:37:52.971Z] ----------------------------------------------------------------------
+[debug] [2020-12-08T10:37:52.973Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\David Egea Lozano\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js hosting:channel:deploy firechat
+[debug] [2020-12-08T10:37:52.974Z] CLI Version:   8.18.0
+[debug] [2020-12-08T10:37:52.974Z] Platform:      win32
+[debug] [2020-12-08T10:37:52.974Z] Node Version:  v14.4.0
+[debug] [2020-12-08T10:37:52.976Z] Time:          Tue Dec 08 2020 11:37:52 GMT+0100 (hora estándar de Europa central)
+[debug] [2020-12-08T10:37:52.976Z] ----------------------------------------------------------------------
+[debug] [2020-12-08T10:37:52.976Z] 
+[debug] [2020-12-08T10:37:52.990Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-08T10:37:52.991Z] > authorizing via signed-in user
+[debug] [2020-12-08T10:37:52.991Z] [iam] checking project firechat-a030a for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-08T10:37:52.995Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/firechat-a030a:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-08T10:37:54.196Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 08 Dec 2020 10:37:34 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=730","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-08T10:37:54.199Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/firechat-a030a  
+ 
+[debug] [2020-12-08T10:37:54.535Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 08 Dec 2020 10:37:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'firechat-a030a'...
+[info] 
+[info] i  deploying hosting 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/firechat-a030a/overview
+[debug] [2020-12-08T10:37:54.748Z] TypeError: Cannot read property 'deploys' of undefined
+    at C:\Users\David Egea Lozano\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:85:36
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.

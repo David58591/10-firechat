@@ -10,10 +10,10 @@ import { authFireGoogle, authFireTwitter } from '../environments/environment';
 })
 export class AppComponent {
   title = 'authWithGoogleAndTwitter';
-  constructor(auth: AuthService){
+  constructor(auth : AuthService){
     firebase.initializeApp(authFireGoogle, 'logueo con Google');
-    firebase.initializeApp(authFireTwitter, 'logueo con Twitter');
+  ///  firebase.initializeApp(authFireTwitter, 'logueo con Twitter');
     auth.credentialsGoogle();
-    auth.credentialsTwitter();
+  //  auth.credentialsTwitter();
   }
 }

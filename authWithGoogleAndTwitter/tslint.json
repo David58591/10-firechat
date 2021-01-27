@@ -103,7 +103,7 @@
         {
           "call-signature": "nospace",
           "index-signature": "nospace",
-          "parameter": "nospace",
+          "parameter": "space",
           "property-declaration": "nospace",
           "variable-declaration": "nospace"
         },

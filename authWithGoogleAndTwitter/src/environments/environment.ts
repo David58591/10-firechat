@@ -8,7 +8,7 @@ export const environment = {
 export const  authFireGoogle = {
   apiKey: 'AIzaSyB0apZi9csudS7OdwT3KNzN1aRY0_x1znQ',
   authDomain: 'firechat-a030a.firebaseapp.com',
-  databaseURL: 'https://firechat-a030a.firebaseio.com',
+  databaseURL: 'https://firechat-a030a.firebaseapp.com/',
   projectId: 'firechat-a030a',
   storageBucket: 'firechat-a030a.appspot.com',
   messagingSenderId: '413818067815',
@@ -16,14 +16,14 @@ export const  authFireGoogle = {
   measurementId: 'G-6DXT9C7T2X'
  };
 export const  authFireTwitter = {
-  apiKey: '413818067815-vrhdj3gcn31ifnk433jsb50rj1q9q1hk.apps.googleusercontent.com',
-  apiSecret: 'YWE6H20322o2FwLD60T4WMoa'
+  apiKey: 'N268nubkxjehjYNiiLsgGLvMX',
+  authDomain : '',
+  apiSecret: 'NDuBs7lZRsXpnseaDWic5hUm01GUZERAbbrh0tS7rWxEfaK861'
  };
 
  // Initialize Firebase
-firebase.initializeApp(authFireGoogle, 'Google');
-firebase.initializeApp(authFireTwitter, 'Twitter');
-firebase.analytics();
+
+firebase.initializeApp(authFireGoogle);
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

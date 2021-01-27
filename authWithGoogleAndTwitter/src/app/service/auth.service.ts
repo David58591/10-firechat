@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
+import { authFireGoogle } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,32 +10,41 @@ export class AuthService {
 
   // tslint:disable-next-line: typedef
   credentialsGoogle() {
-    let // Using a popup.
-      provider = new firebase.auth.GoogleAuthProvider();
+    // Using a popup.
+    let provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('profile');
     provider.addScope('email');
+
     firebase
       .auth()
-      .signInWithPopup(provider)
-      .then(function(result) {
+      .getRedirectResult()
+      .then(function (result) {
         // This gives you a Google Access Token.
-        var token = result.credential.providerId;
+        if (result.credential) {
+          const token = authFireGoogle.apiKey;
+        }
+
         // The signed-in user info.
-        var user = result.user;
+        let user = result.user;
       });
   }
   credentialsTwitter() {
-    var providerTwitter = new firebase.auth.TwitterAuthProvider();
-    providerTwitter.setCustomParameters({apiKey: 'N268nubkxjehjYNiiLsgGLvMX', secretKey : 'NDuBs7lZRsXpnseaDWic5hUm01GUZERAbbrh0tS7rWxEfaK861'});
-    providerTwitter.providerId = 'YWE6H20322o2FwLD60T4WMoa';
+    const providerTwitter = new firebase.auth.TwitterAuthProvider();
+    providerTwitter.setCustomParameters({
+      apiKey:
+        '413818067815-vrhdj3gcn31ifnk433jsb50rj1q9q1hk.apps.googleusercontent.com',
+      secretKey: 'YWE6H20322o2FwLD60T4WMoa',
+    });
+    providerTwitter.providerId =
+      'https://firechat-a030a.firebaseapp.com/__/auth/handler';
     firebase
       .auth()
       .signInWithPopup(providerTwitter)
       .then(function (result) {
         // This gives you a Google Access Token.
-        var token = result.credential.providerId;
+        const token = result.credential.signInMethod;
         // The signed-in user info.
-        var user = result.user;
+        const user = result.user;
       });
   }
 }
